@@ -68,6 +68,7 @@ extension MovieListView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedMovie = movies[indexPath.row]
+        print("Secilen Film : \(selectedMovie)")
         showAlert(with: selectedMovie)
         tableView.deselectRow(at: indexPath, animated: true) // Hücre seçimini kaldır
     }
