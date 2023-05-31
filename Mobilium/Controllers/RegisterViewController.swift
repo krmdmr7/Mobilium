@@ -48,10 +48,14 @@ class RegisterViewController: UIViewController {
         return passwordError
     }()
     
-    private lazy var nameTextField: UITextField = {
+    public lazy var nameTextField: UITextField = {
         let nameTextField = UITextField()
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: nameTextField.frame.height))
+        nameTextField.leftView = paddingView
+        nameTextField.leftViewMode = .always
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.attributedPlaceholder = "Name".toAttributed(alignment: .center)
+        nameTextField.autocorrectionType = .no
         nameTextField.layer.borderWidth = 1
         nameTextField.layer.borderColor = UIColor.darkGray.cgColor
         nameTextField.layer.cornerRadius = 10
@@ -59,10 +63,15 @@ class RegisterViewController: UIViewController {
         return nameTextField
     }()
     
-    private lazy var mailTextField: UITextField = {
+    public lazy var mailTextField: UITextField = {
         let mailTextField = UITextField()
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: mailTextField.frame.height))
+        mailTextField.leftView = paddingView
+        mailTextField.leftViewMode = .always
         mailTextField.translatesAutoresizingMaskIntoConstraints = false
         mailTextField.attributedPlaceholder = "e-mail".toAttributed(alignment: .center)
+        mailTextField.addLowerCaseKeyboard()
+        mailTextField.autocorrectionType = .no
         mailTextField.layer.borderWidth = 1
         mailTextField.layer.borderColor = UIColor.darkGray.cgColor
         mailTextField.layer.cornerRadius = 10
@@ -70,11 +79,14 @@ class RegisterViewController: UIViewController {
         return mailTextField
     }()
     
-    private lazy var passwordTextField: UITextField = {
+    public lazy var passwordTextField: UITextField = {
         let passwordTextField = UITextField()
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: passwordTextField.frame.height))
+        passwordTextField.leftView = paddingView
+        passwordTextField.leftViewMode = .always
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.attributedPlaceholder = "Password".toAttributed(alignment: .center)
-//        sifreTextField.isSecureTextEntry = true
+        passwordTextField.autocorrectionType = .no
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
         passwordTextField.layer.cornerRadius = 10
@@ -84,8 +96,12 @@ class RegisterViewController: UIViewController {
     
     private lazy var reTypePasswordTextField: UITextField = {
         let reTypePasswordTextField = UITextField()
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: reTypePasswordTextField.frame.height))
+        reTypePasswordTextField.leftView = paddingView
+        reTypePasswordTextField.leftViewMode = .always
         reTypePasswordTextField.translatesAutoresizingMaskIntoConstraints = false
         reTypePasswordTextField.attributedPlaceholder = "Re-Type Password".toAttributed(alignment: .center)
+        reTypePasswordTextField.autocorrectionType = .no
         reTypePasswordTextField.layer.borderWidth = 1
         reTypePasswordTextField.layer.borderColor = UIColor.darkGray.cgColor
         reTypePasswordTextField.layer.cornerRadius = 10
@@ -110,6 +126,9 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        
+        title = "Register"
+        
         configure()
     }
     
@@ -117,6 +136,7 @@ class RegisterViewController: UIViewController {
     
     private func configure(){
         addConstraints()
+        hideKeyboardWhenTappedAround()
     }
     
     private func addConstraints(){
@@ -196,7 +216,6 @@ class RegisterViewController: UIViewController {
             nameError.textColor = .systemGreen
             
             checkForValidForm()
-//            checkForValidForm() // gerek yok cunku 2 tane filtreyi yesillendiriyor
         }
         else {
             invalidNameBool = true
@@ -223,7 +242,6 @@ class RegisterViewController: UIViewController {
             invalidEmailBool = false
             
             checkForValidForm()
-//            checkForValidForm() // gerek yok cunku 2 tane error yesillendiriyor
         }
         return nil
     }
@@ -290,7 +308,16 @@ class RegisterViewController: UIViewController {
     
     //MARK: - Actions
     @objc func registerTapped(){
-        print("Register tapped.")
+        let loginViewController = LoginViewController()
+        
+        loginViewController.name = nameTextField.text
+        loginViewController.password = passwordTextField.text
+        
+        navigationController?.pushViewController(loginViewController, animated: true)
+        
+        
+        print("Name     : \(String(describing: nameTextField.text!))")
+        print("E-Mail   : \(String(describing: mailTextField.text!))")
+        print("Password : \(String(describing: passwordTextField.text!))")
     }
 }
-

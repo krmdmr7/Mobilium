@@ -15,7 +15,7 @@ class MovieListViewController: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .systemRed
     }
     
     //MARK: - Functions
