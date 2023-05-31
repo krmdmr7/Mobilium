@@ -8,16 +8,36 @@
 import UIKit
 
 class MovieCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    static let cellIdentifier = "CustomTableViewCell"
+    
+    public let movieName:UILabel = {
+        let movieName = UILabel()
+        movieName.translatesAutoresizingMaskIntoConstraints = false
+        movieName.textColor = .darkGray
+        movieName.textAlignment = .left
+        movieName.font = .systemFont(ofSize: 18, weight: .semibold)
+        return movieName
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configure()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        
+    
+    required init?(coder: NSCoder) {
+        fatalError("Unsupoorted TableViewCell!")
+    }
+    
+    private func configure(){
+        addConstraints()
+    }
+    
+    private func addConstraints() {
+        contentView.addSubview(movieName)
+        NSLayoutConstraint.activate([
+            movieName.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            movieName.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 40)
+        ])
     }
 
 }

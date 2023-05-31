@@ -19,6 +19,7 @@
 		41966ADD2A20E1E800A8107F /* hideKeyboardWhenTappedAround+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41966ADC2A20E1E800A8107F /* hideKeyboardWhenTappedAround+Extension.swift */; };
 		41966ADF2A20E31900A8107F /* AddSubViews+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41966ADE2A20E31900A8107F /* AddSubViews+Extension.swift */; };
 		419D27C92A27C607009E878E /* UITextField_LowerCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D27C82A27C606009E878E /* UITextField_LowerCase+Extension.swift */; };
+		419D27CC2A280CA5009E878E /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D27CB2A280CA5009E878E /* MovieListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		41966ADC2A20E1E800A8107F /* hideKeyboardWhenTappedAround+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "hideKeyboardWhenTappedAround+Extension.swift"; sourceTree = "<group>"; };
 		41966ADE2A20E31900A8107F /* AddSubViews+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSubViews+Extension.swift"; sourceTree = "<group>"; };
 		419D27C82A27C606009E878E /* UITextField_LowerCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField_LowerCase+Extension.swift"; sourceTree = "<group>"; };
+		419D27CB2A280CA5009E878E /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		41966ABB2A20DE2C00A8107F /* Mobilium */ = {
 			isa = PBXGroup;
 			children = (
+				419D27CA2A280C92009E878E /* Views */,
 				41966AD92A20E18900A8107F /* Extensions */,
 				41966AD62A20E09C00A8107F /* CustomCells */,
 				41966AD02A20E02700A8107F /* Controllers */,
@@ -115,6 +118,14 @@
 				419D27C82A27C606009E878E /* UITextField_LowerCase+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		419D27CA2A280C92009E878E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				419D27CB2A280CA5009E878E /* MovieListView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41966AD32A20E04A00A8107F /* LoginViewController.swift in Sources */,
+				419D27CC2A280CA5009E878E /* MovieListView.swift in Sources */,
 				419D27C92A27C607009E878E /* UITextField_LowerCase+Extension.swift in Sources */,
 				41966AD52A20E08D00A8107F /* MovieListViewController.swift in Sources */,
 				41966AD82A20E0B100A8107F /* MovieCell.swift in Sources */,
